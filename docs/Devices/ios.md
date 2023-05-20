@@ -2,11 +2,13 @@
 sidebar_position: 2
 ---
 
-# Install Cast reactor on Android device
+# Install Cast reactor on IOS device
 
 
-## Install Fully kiosk browser
+## Kiosk - fullscreen browser
 
-Search for "Fully kiosk browser" on Google Play store and install it
+Search for "fullscreen browser" on app store and install it
 
-Then follow this [guide](/docs/fullyKioskBrowser)
+Here is the link [link](https://apps.apple.com/fr/app/kiosk-fullscreen-browser/id1544947623)
+
+Simply define your start url to "https://dashboard.castreactor.com/connect"

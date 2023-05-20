@@ -13,7 +13,7 @@ See <a href="https://unlayer.com/" target="new">here</a> for more detail about t
 2. Customize your content and click on update
 3. Your layer can be used in media sequence
 
-![remoteControl1](/img/screen1.png)
+![widget](/img/screen1.png)
 
 ## Use dynamic variables
 
@@ -21,20 +21,26 @@ You can use [mustache](https://www.npmjs.com/package/mustache) variables in your
 
 When you call the online service to change the value of the variables, your screen will be re-rendered automatically and new values will be displayed
 
-Create a mustache variable like {{variable}} your layout content, then the code below explains how to do that on server side
+Create a mustache variable like {{ma_variable}} inside your layout content, then you can fill the value using a Rest Service
 
-const axios=require('axios');
-axios.post('http://localhost:5001/castreactor/us-central1/layout/layoutData/hxRHr6ESnqW5OH6O9tEI/SksjeUeaz9K9Y82pxOrH',
-{
-"ma_variable": "ma_variable_value"
-},
-{
-headers: {
-'Content-Type': 'application/json',
-'Authorization': '6c983c1d-dcf9-4c43-899c-659b46fa4c6b'
+the code below explains how to do that on server side
+
+```jsx title="Exemple using node"
+function HelloDocusaurus() {
+    const axios=require('axios');
+    axios.post('https://us-central1-castreactor.cloudfunctions.net/layout/layoutData/YOUR_BRAND_ID/YOUR_DEVICE_ID',
+        {
+            "ma_variable": "ma_variable_value"
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'YOUR_AUTHORIZATION_KEY'
+            }
+        }
+    )
+    .then(function (response) {
+        console.log("update done");
+    })
 }
-}
-)
-.then(function (response) {
-console.log("update done");
-})
+```
